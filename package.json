@@ -1,0 +1,54 @@
+{
+  "name": "bigint-calculator",
+  "version": "1.0.0",
+  "description": "A desktop calculator application for performing arithmetic operations on BigInt numbers in both hex and decimal formats.",
+  "main": "dist/main/main.js",
+  "scripts": {
+    "start": "npm run build && electron .",
+    "build": "webpack --mode production",
+    "dev": "webpack --mode development && electron .",
+    "package": "npm run build && electron-builder"
+  },
+  "keywords": [
+    "electron",
+    "calculator",
+    "bigint",
+    "hex",
+    "decimal"
+  ],
+  "author": "David Allonby",
+  "email": "da@byeq.com",
+  "license": "MIT",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "electron": "^29.0.1",
+    "clean-webpack-plugin": "^4.0.0",
+    "electron-builder": "^24.9.1",
+    "html-webpack-plugin": "^5.6.3",
+    "ts-loader": "^9.5.2",
+    "typescript": "^5.3.3",
+    "webpack": "^5.90.3",
+    "webpack-cli": "^5.1.4"
+  },
+  "build": {
+    "appId": "com.example.bigintcalculator",
+    "productName": "BigInt Calculator",
+    "files": [
+      "dist/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    },
+    "linux": {
+      "target": ["deb", "rpm", "AppImage"],
+      "category": "Utility"
+    },
+    "win": {
+      "target": ["nsis", "portable"]
+    },
+    "mac": {
+      "target": ["dmg"]
+    }
+  }
+}

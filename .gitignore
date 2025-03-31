@@ -1,0 +1,47 @@
+# Dependencies
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Production build
+dist/
+build/
+out/
+release/
+*.js.map
+
+# TypeScript
+*.tsbuildinfo
+
+# Electron
+.electron-builder.env
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS specific files
+.DS_Store
+Thumbs.db
+.directory
+desktop.ini
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+logs/
+*.log
+lerna-debug.log*
+
+# Coverage directory
+coverage/

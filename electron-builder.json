@@ -1,0 +1,37 @@
+{
+  "appId": "com.example.bigintcalculator",
+  "productName": "BigInt Calculator",
+  "version": "1.0.0",
+  "description": "A desktop application for performing arithmetic operations on BigInt numbers.",
+  "main": "dist/main/main.js",
+  "files": [
+    "dist/**/*",
+    "node_modules/**/*"
+  ],
+  "directories": {
+    "buildResources": "assets"
+  },
+  "linux": {
+    "target": [
+      "AppImage",
+      "deb"
+    ],
+    "category": "Utility"
+  },
+  "mac": {
+    "target": [
+      "dmg",
+      "zip"
+    ],
+    "category": "public.app-category.utilities"
+  },
+  "win": {
+    "target": [
+      "nsis"
+    ],
+    "icon": "assets/icon.ico"
+  },
+  "scripts": {
+    "postinstall": "electron-builder install-app-deps"
+  }
+}
