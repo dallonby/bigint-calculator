@@ -1,19 +1,38 @@
+/* Modern, visually appealing design */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    padding: 20px;
     margin: 0;
+    color: #333;
 }
 
 .calculator {
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 300px;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 90%;
+    min-width: 800px; /* Set a good minimum width */
+    max-width: 1200px; /* Allow more expansion */
+    margin: 0 auto;
+}
+
+.app-title {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 30px;
+    color: #2d3748;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.input-container {
+    margin-bottom: 25px;
 }
 
 .input-field {
@@ -57,3 +76,209 @@ body {
 .sign-switch:hover {
     background-color: #218838;
 }
+
+/* Result display with fixed-width font */
+.result-container {
+    width: 100%;
+    margin-top: 20px;
+    overflow-x: auto; /* Allow horizontal scrolling */
+}
+
+.result-container h2 {
+    color: #2d3748;
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+/* Set a default height for the result display */
+#resultDisplay {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 12px;
+    min-height: 110px; /* Set minimum height to fit 3 rows approx */
+    height: auto;     /* Let it grow beyond minimum if needed */
+    max-height: none; /* No maximum height constraint */
+    overflow-y: visible;
+    overflow-x: auto; /* Keep horizontal scrolling */
+    margin-top: 10px;
+    margin-bottom: 15px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Make the formatted result more compact */
+.formatted-result {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin: 0; /* Remove any margin */
+}
+
+.result-row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    align-items: center;
+    padding: 6px 0;
+    border-bottom: 1px solid #edf2f7;
+    min-height: 28px; /* Set a consistent height */
+}
+
+.result-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0; /* Remove padding from last row */
+}
+
+.result-label {
+    font-weight: 600;
+    padding-right: 10px;
+    color: #4a5568;
+}
+
+.result-value {
+    font-family: 'JetBrains Mono', monospace;
+    background-color: #fff;
+    padding: 6px 10px;
+    border-radius: 6px;
+    white-space: nowrap;
+    overflow-x: auto;
+    max-width: 100%;
+    position: relative;
+    cursor: default;
+    border: 1px solid #edf2f7;
+}
+
+/* Change cursor on hover when content is scrollable */
+.result-value.scrollable {
+    position: relative;
+    cursor: e-resize;
+    box-shadow: inset -10px 0 5px -5px rgba(0, 0, 0, 0.05);
+}
+
+.result-value.scrollable::after {
+    content: '›';
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #718096;
+    animation: pulse 1.5s infinite;
+}
+
+/* Add a shadow fade on the right side when content overflows */
+.result-value.scrollable::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 30px;
+    background: linear-gradient(to right, rgba(249, 249, 249, 0), rgba(249, 249, 249, 1)); /* Fade to background color */
+    pointer-events: none; /* Let scroll events pass through */
+}
+
+@keyframes pulse {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
+
+/* Customize the scrollbar to make it more visible */
+.result-value::-webkit-scrollbar {
+    height: 6px;
+}
+
+.result-value::-webkit-scrollbar-track {
+    background: #edf2f7;
+    border-radius: 3px;
+}
+
+.result-value::-webkit-scrollbar-thumb {
+    background: #a0aec0;
+    border-radius: 3px;
+}
+
+.result-value::-webkit-scrollbar-thumb:hover {
+    background: #718096;
+}
+
+input[type="text"] {
+    font-family: 'JetBrains Mono', monospace;
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.2s;
+    background-color: #f8fafc;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #4299e1;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.3);
+}
+
+/* Clean up operation styles */
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin: 25px 0;
+}
+
+#signSwitchButton {
+    background-color: #4299e1;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 4px 6px rgba(66, 153, 225, 0.2);
+}
+
+#signSwitchButton:hover {
+    background-color: #3182ce;
+    transform: translateY(-1px);
+}
+
+#signSwitchButton:active {
+    background-color: #2b6cb0;
+    transform: translateY(1px);
+}
+
+/* Remove these now-unused styles */
+/* 
+.operation-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.operand-input {
+    margin-bottom: 10px;
+}
+
+#operandInput {
+    width: 100%;
+    padding: 8px;
+    font-family: "Courier New", Courier, monospace;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.format-toggle {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.8rem;
+}
+
+.format-toggle label {
+    margin-right: 10px;
+    cursor: pointer;
+}
+*/

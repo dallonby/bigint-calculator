@@ -24,7 +24,10 @@ module.exports = [
       extensions: ['.ts', '.js']
     },
     plugins: [
-      new CleanWebpackPlugin()
+      new CleanWebpackPlugin({
+        cleanOnceBeforeBuildPatterns: ['main/**/*'],
+        cleanStaleWebpackAssets: false
+      })
     ]
   },
   {
@@ -55,6 +58,10 @@ module.exports = [
       new HtmlWebpackPlugin({
         template: './src/renderer/index.html',
         filename: 'renderer/index.html'
+      }),
+      new CleanWebpackPlugin({
+        cleanOnceBeforeBuildPatterns: ['renderer/**/*'],
+        cleanStaleWebpackAssets: false
       })
     ]
   }

@@ -5,12 +5,11 @@ let mainWindow: BrowserWindow | null = null;
 
 function createWindow() {
   mainWindow = new BrowserWindow({
-    width: 400,
-    height: 600,
+    width: 1000, // Increase from default (likely 800)
+    height: 700, // Adjust height if needed
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false
-      // Remove enableRemoteModule: true
     }
   });
 
